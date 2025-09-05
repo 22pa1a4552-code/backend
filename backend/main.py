@@ -1,4 +1,7 @@
 from fastapi import FastAPI
+
+app = FastAPI()
+
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from groq import Groq
@@ -32,3 +35,4 @@ async def chat(req: ChatRequest):
         return {"reply": response.choices[0].message.content}
     except Exception as e:
         return {"reply": f"⚠️ Backend error: {str(e)}"}
+
